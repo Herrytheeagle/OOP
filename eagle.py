@@ -2,11 +2,13 @@ import random
 
 class Eagle:
 
-    def __init__(self, color):
+    def __init__(self, color, x_boundary, y_boundary):
         self.x = random.randrange(0, WIDTH)
         self.y = random.randrange(0, HEIGHT)
         self.size = random.randrange(4,8)
         self.color = color
+        self.x_boundary = x_boundary
+        self.y_boundary = y_boundary
 
     def fly(self):
         self.fly_x = random.randrange(-1,2)
