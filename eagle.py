@@ -1,10 +1,10 @@
 import random
 
+
 class Eagle:
 
     def __init__(self, color, x_boundary, y_boundary):
-
-        self.size = random.randrange(4,8)
+        self.size = random.randrange(4, 8)
         self.color = color
         self.x_boundary = x_boundary
         self.y_boundary = y_boundary
