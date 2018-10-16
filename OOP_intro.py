@@ -1,6 +1,9 @@
 import pygame
 import random
 
+STARTING_BLACK_EAGLE = 10
+STARTING_PURPLE_EAGLE = 3
+
 WIDTH = 800
 HEIGHT = 700
 WHITE = (345, 255, 100)
@@ -32,23 +35,29 @@ class Eagle:
         elif self.y > HEIGHT: self.y = HEIGHT
 
 
-def draw_environment(eagle):
+def draw_environment(eagle_list):
     game_display.fill(WHITE)
-    pygame.draw.circle(game_display, eagle.color, [eagle.x, eagle.y], eagle.size)
+
+    for eagle_dict in eagle_list:
+        for eagle_id in eagle_dict:
+            eagle = eagle_dict[eagle_id]
+            pygame.draw.circle(game_display, eagle.color, [eagle.x, eagle.y], eagle.size)
+            eagle.fly()
     pygame.display.update()
-    eagle.fly()
+
 
 def main():
-    black_eagle = Eagle(BLACK)
+    black_eagle = dict(enumerate([Eagle(BLACK) for i in range(STARTING_BLACK_EAGLE)]))
+    purple_eagle = dict(enumerate([Eagle(PURPLE) for i in range(STARTING_PURPLE_EAGLE)]))
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
 
-        draw_environment(black_eagle)
+        draw_environment(black_eagle, purple_eagle)
         clock.tick(60)
-        print(black_eagle.x, black_eagle.y)
+        # print(black_eagle.x, black_eagle.y)
 
 if __name__ == '__main__':
     main()
