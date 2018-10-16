@@ -17,3 +17,14 @@ class Eagle:
         self.fly_y = random.randrange(self.movement_range[0], self.movement_range[1])
         self.x += self.fly_x
         self.y += self.fly_y
+
+    def check_flies(self):
+        if self.x < 0:
+            self.x = 0
+        elif self.x > self.x_boundary:
+            self.x = self.x_boundary
+
+        if self.y < 0:
+            self.y = 0
+        elif self.y > self.y_boundary:
+            self.y = self.y_boundary
