@@ -27,8 +27,8 @@ def draw_environment(eagle_list):
 
 
 def main():
-    black_eagle = dict(enumerate([Eagle(BLACK) for i in range(STARTING_BLACK_EAGLE)]))
-    purple_eagle = dict(enumerate([Eagle(PURPLE) for i in range(STARTING_PURPLE_EAGLE)]))
+    black_eagle = dict(enumerate([Eagle(BLACK, WIDTH, HEIGHT) for i in range(STARTING_BLACK_EAGLE)]))
+    purple_eagle = dict(enumerate([Eagle(PURPLE, WIDTH, HEIGHT) for i in range(STARTING_PURPLE_EAGLE)]))
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
