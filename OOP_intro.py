@@ -23,6 +23,16 @@ def draw_environment(eagle_list):
             eagle = eagle_dict[eagle_id]
             pygame.draw.circle(game_display, eagle.color, [eagle.x, eagle.y], eagle.size)
             eagle.fly()
+            if eagle.x < 0:
+                eagle.x = 0
+            elif eagle.x > eagle.x_boundary:
+                eagle.x = eagle.x_boundary
+
+            if eagle.y < 0:
+                eagle.y = 0
+            elif eagle.y > eagle.y_boundary:
+                eagle.y = eagle.y_boundary
+
     pygame.display.update()
 
 
