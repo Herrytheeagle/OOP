@@ -22,8 +22,8 @@ class BlackEagle(Eagle):
         self.color = BLACK
 
     def fly_high(self):
-        self.x =random.randrange(-7, 7)
-        self.y =random.randrange(-7, 7)
+        self.x +=random.randrange(-7, 7)
+        self.y +=random.randrange(-7, 7)
 
 def draw_environment(eagle_list):
     game_display.fill(WHITE)
