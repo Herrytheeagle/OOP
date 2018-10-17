@@ -53,7 +53,7 @@ def handle_collisions(blob_list):
     blues, reds, greens = (blob_list)
     for blue_id, blue_blob, in blues.copy().items():
         for other_blobs in blues, reds, greens:
-            for other_blob_id, other_blob in other_blobs.cop().items()
+            for other_blob_id, other_blob in other_blobs.copy().items()
                 if blue_blob == other_blob:
                     pass
                 else:
@@ -62,7 +62,7 @@ def handle_collisions(blob_list):
                     if other_blob.size <= 0:
                         del other_blobs[other_blob_id]
                     if blue_blob.size <=0:
-                        del blues(blue_id)
+                        del blues[blue_id]
 
         return blues, reds, greens
 
