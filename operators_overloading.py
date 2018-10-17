@@ -52,6 +52,10 @@ def is_touching(b1, b2):
 def handle_collision(blob_list):
     blues, reds, greens = (blob_list)
     for blue_id, blue_blob, in blues.copy().item():
+        for other_blobs in blues, reds, greens:
+            for other_blob_id, other_blob in other_blobs.cop().items()
+                if blue_blob == other_blob:
+                    pass
 
 def draw_environment(blob_list):
     game_display.fill(WHITE)
