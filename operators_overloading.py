@@ -4,7 +4,7 @@ from eagle import Eagle
 import  numpy as np
 import logging
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(filename='logfile.log', fllevel=logging.INFO)
 
 STARTING_BLUE_BLOBS = 15
 STARTING_RED_BLOBS = 15
@@ -104,6 +104,8 @@ def main():
             clock.tick(60)
         except Exception as e:
             logging.critical(str(e))
+            pygame.quit()
+            quit()
             break
 
 
