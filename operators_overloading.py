@@ -1,6 +1,7 @@
 import pygame
 import random
 from eagle import Eagle
+import  numpy as np
 
 STARTING_BLUE_BLOBS = 10
 STARTING_RED_BLOBS = 3
@@ -44,6 +45,14 @@ class GreenBlob(Eagle):
         Eagle.__init__(self, (0, 255, 0), x_boundary, y_boundary)
 
 
+def is_touching(b1, b2):
+    return np.linalg.norm(np.array([b1.x, b1.y])-np.array([b2.x, b2.y])) < (b1.size + b2.size)
+
+
+def handle_collision(blob_list):
+    blues, reds, greens = (blob_list)
+    for blue_id, blue_blob, in blues.copy().item():
+
 def draw_environment(blob_list):
     game_display.fill(WHITE)
 
@@ -66,14 +75,14 @@ def main():
     blue_blobs[0] + red_blobs[0]
     print('Blue blob size:{} Red blob size:{}'.format(blue_blobs[0].size, red_blobs[0].size))
 
-    # while True:
-    #     for event in pygame.event.get():
-    #         if event.type == pygame.QUIT:
-    #             pygame.quit()
-    #             quit()
-    #
-    #     draw_environment([blue_blobs, red_blobs, green_blobs])
-    #     clock.tick(60)
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+
+        draw_environment([blue_blobs, red_blobs, green_blobs])
+        clock.tick(60)
 
 
 if __name__ == '__main__':
