@@ -33,6 +33,7 @@ class BlueBlob(Eagle):
         else:
             raise Exception('Tried to combine one or multiple blobs of unsupported colors. ')
 
+
 class RedBlob(Eagle):
     def __init__(self, x_boundary, y_boundary):
         Eagle.__init__(self, (255, 0, 0), x_boundary, y_boundary)
@@ -60,14 +61,19 @@ def main():
     blue_blobs = dict(enumerate([BlueBlob(WIDTH, HEIGHT) for i in range(STARTING_BLUE_BLOBS)]))
     red_blobs = dict(enumerate([RedBlob(WIDTH, HEIGHT) for i in range(STARTING_RED_BLOBS)]))
     green_blobs = dict(enumerate([GreenBlob(WIDTH, HEIGHT) for i in range(STARTING_GREEN_BLOBS)]))
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                quit()
 
-        draw_environment([blue_blobs, red_blobs, green_blobs])
-        clock.tick(60)
+    print('Blue blob size:{} Red blob size:{}'.format(blue_blobs[0].size, red_blobs[0].size))
+    blue_blobs[0] + red_blobs[0]
+    print('Blue blob size:{} Red blob size:{}'.format(blue_blobs[0].size, red_blobs[0].size))
+
+    # while True:
+    #     for event in pygame.event.get():
+    #         if event.type == pygame.QUIT:
+    #             pygame.quit()
+    #             quit()
+    #
+    #     draw_environment([blue_blobs, red_blobs, green_blobs])
+    #     clock.tick(60)
 
 
 if __name__ == '__main__':
