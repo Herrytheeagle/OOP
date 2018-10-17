@@ -21,6 +21,10 @@ class BlueBlob(Eagle):
     def __init__(self, x_boundary, y_boundary):
         Eagle.__init__(self, (0, 0, 255), x_boundary, y_boundary)
 
+    def __add__(self, other_blob):
+        if other_blob.color == (255, 0, 0):
+            self.size -= other_blob.size
+            other_blob.size -= self.size
 
 class RedBlob(Eagle):
     def __init__(self, x_boundary, y_boundary):
