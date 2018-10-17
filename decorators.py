@@ -9,6 +9,7 @@ def add_wrapping_with_style(style):
         return wrapped_item
     return add_wrapping
 
+
 @add_wrapping_with_style('Good')
 @add_wrapping_with_style('Beautifully')
 def new_gpu():
