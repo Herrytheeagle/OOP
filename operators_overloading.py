@@ -25,6 +25,13 @@ class BlueBlob(Eagle):
         if other_blob.color == (255, 0, 0):
             self.size -= other_blob.size
             other_blob.size -= self.size
+        elif other_blob.color == (0, 255, 0):
+            self.size += other_blob.size
+            other_blob.size = 0
+        elif other_blob.color == (0, 0, 255):
+            pass
+        else:
+            raise Exception('Tried to combine one or multiple blobs of unsupported colors. ')
 
 class RedBlob(Eagle):
     def __init__(self, x_boundary, y_boundary):
