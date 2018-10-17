@@ -57,11 +57,12 @@ def handle_collisions(blob_list):
     blues, reds, greens = (blob_list)
     for blue_id, blue_blob, in blues.copy().items():
         for other_blobs in blues, reds, greens:
-            for other_blob_id, other_blob in other_blobs.copy().items()
+            for other_blob_id, other_blob in other_blobs.copy().items():
+                logging.debug('Checking if blobs are touching {} + {}'.format(str(blue_blob.color), str(other_blob.color)))
                 if blue_blob == other_blob:
                     pass
                 else:
-                    if is_touching(blue_blob,other_blob);
+                    if is_touching(blue_blob,other_blob):
                         blue_blob + other_blob
                     if other_blob.size <= 0:
                         del other_blobs[other_blob_id]
@@ -72,7 +73,7 @@ def handle_collisions(blob_list):
 
 def draw_environment(blob_list):
     game_display.fill(WHITE)
-    blues, reds, greens = handle_collision(blob_list)
+    blues, reds, greens = handle_collisions(blob_list)
     for blob_dict in blob_list:
         for blob_id in blob_dict:
             blob = blob_dict[blob_id]
@@ -93,13 +94,17 @@ def main():
     print('Blue blob size:{} Red blob size:{}'.format(blue_blobs[0].size, red_blobs[0].size))
 
     while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                quit()
+        try:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
 
-            blue_blobs, red_blobs, green_blobs = draw_environment([blue_blobs, red_blobs, green_blobs])
-        clock.tick(60)
+                blue_blobs, red_blobs, green_blobs = draw_environment([blue_blobs, red_blobs, green_blobs])
+            clock.tick(60)
+        except Exception as e:
+            logging.critical(str(e))
+            break
 
 
 if __name__ == '__main__':
