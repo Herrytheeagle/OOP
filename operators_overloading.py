@@ -19,17 +19,17 @@ clock = pygame.time.Clock()
 
 class BlueBlob(Eagle):
     def __init__(self, x_boundary, y_boundary):
-        Blob.__init__(self, (0, 0, 255), x_boundary, y_boundary)
+        Eagle.__init__(self, (0, 0, 255), x_boundary, y_boundary)
 
 
-class RedBlob(Blob):
+class RedBlob(Eagle):
     def __init__(self, x_boundary, y_boundary):
-        Blob.__init__(self, (255, 0, 0), x_boundary, y_boundary)
+        Eagle.__init__(self, (255, 0, 0), x_boundary, y_boundary)
 
 
-class GreenBlob(Blob):
+class GreenBlob(Eagle):
     def __init__(self, x_boundary, y_boundary):
-        Blob.__init__(self, (0, 255, 0), x_boundary, y_boundary)
+        Eagle.__init__(self, (0, 255, 0), x_boundary, y_boundary)
 
 
 def draw_environment(blob_list):
