@@ -26,6 +26,7 @@ class BlueBlob(Eagle):
         Eagle.__init__(self, (0, 0, 255), x_boundary, y_boundary)
 
     def __add__(self, other_blob):
+        logging.info('Blob add op {} + {}'.format(str(self.color), str(other_blob.color)))
         if other_blob.color == (255, 0, 0):
             self.size -= other_blob.size
             other_blob.size -= self.size
