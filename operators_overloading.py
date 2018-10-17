@@ -2,6 +2,9 @@ import pygame
 import random
 from eagle import Eagle
 import  numpy as np
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
 
 STARTING_BLUE_BLOBS = 15
 STARTING_RED_BLOBS = 15
