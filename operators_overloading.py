@@ -26,7 +26,7 @@ class BlueBlob(Eagle):
         Eagle.__init__(self, (0, 0, 255), x_boundary, y_boundary)
 
     def __add__(self, other_blob):
-        logging.info('Blob add op {} + {}'.format(str(self), str(other_blob)))
+        logging.info('Blob add op {} + {}'.format(repr(self), repr(other_blob)))
         if other_blob.color == (255, 0, 0):
             self.size -= other_blob.size
             other_blob.size -= self.size
@@ -58,7 +58,7 @@ def handle_collisions(blob_list):
     for blue_id, blue_blob, in blues.copy().items():
         for other_blobs in blues, reds, greens:
             for other_blob_id, other_blob in other_blobs.copy().items():
-                logging.debug('Checking if blobs are touching {} + {}'.format(str(blue_blob), str(other_blob)))
+                logging.debug('Checking if blobs are touching {} + {}'.format(repr(blue_blob), repr(other_blob)))
                 if blue_blob == other_blob:
                     pass
                 else:
@@ -109,5 +109,5 @@ def main():
             break
 
 
-if __name__ == '__main__':)
+if __name__ == '__main__':
     main()
