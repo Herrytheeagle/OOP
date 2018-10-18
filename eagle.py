@@ -18,6 +18,12 @@ class Eagle:
                                                    self.y,
                                                    self.x)
 
+        def __str__(self):
+            return 'Eagle of colour:{}, size: {}, location: ({}, {})'.format(self.color,
+                                                                             self.size,
+                                                                             self.y,
+                                                                             self.x)
+
     def fly(self):
         self.fly_x = random.randrange(self.movement_range[0], self.movement_range[1])
         self.fly_y = random.randrange(self.movement_range[0], self.movement_range[1])
