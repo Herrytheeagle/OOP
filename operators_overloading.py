@@ -26,7 +26,7 @@ class BlueBlob(Eagle):
         Eagle.__init__(self, (0, 0, 255), x_boundary, y_boundary)
 
     def __add__(self, other_blob):
-        logging.info('Blob add op {} + {}'.format(str(self.color), str(other_blob.color)))
+        logging.info('Blob add op {} + {}'.format(str(self), str(other_blob)))
         if other_blob.color == (255, 0, 0):
             self.size -= other_blob.size
             other_blob.size -= self.size
@@ -58,7 +58,7 @@ def handle_collisions(blob_list):
     for blue_id, blue_blob, in blues.copy().items():
         for other_blobs in blues, reds, greens:
             for other_blob_id, other_blob in other_blobs.copy().items():
-                logging.debug('Checking if blobs are touching {} + {}'.format(str(blue_blob.color), str(other_blob.color)))
+                logging.debug('Checking if blobs are touching {} + {}'.format(str(blue_blob), str(other_blob)))
                 if blue_blob == other_blob:
                     pass
                 else:
@@ -109,10 +109,5 @@ def main():
             break
 
 
-if __name__ == '__main__':
-    blue_blobs = dict(enumerate([BlueBlob(WIDTH, HEIGHT) for i in range(STARTING_BLUE_BLOBS)]))
-    red_blobs = dict(enumerate([RedBlob(WIDTH, HEIGHT) for i in range(STARTING_RED_BLOBS)]))
-    green_blobs = dict(enumerate([GreenBlob(WIDTH, HEIGHT) for i in range(STARTING_GREEN_BLOBS)]))
-   print(blue_blobs[0])
-    pygame.quit()
-    # main()
+if __name__ == '__main__':)
+    main()
