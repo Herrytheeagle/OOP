@@ -12,6 +12,12 @@ class Eagle:
         self.x = random.randrange(0, self.x_boundary)
         self.y = random.randrange(0, self.y_boundary)
 
+        def __repr__(self):
+            return 'Eagle({}, {}, {}, {}))'.format(self.color,
+                                                   self.size,
+                                                   self.y,
+                                                   self.x)
+
     def fly(self):
         self.fly_x = random.randrange(self.movement_range[0], self.movement_range[1])
         self.fly_y = random.randrange(self.movement_range[0], self.movement_range[1])

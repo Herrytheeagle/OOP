@@ -110,4 +110,9 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    blue_blobs = dict(enumerate([BlueBlob(WIDTH, HEIGHT) for i in range(STARTING_BLUE_BLOBS)]))
+    red_blobs = dict(enumerate([RedBlob(WIDTH, HEIGHT) for i in range(STARTING_RED_BLOBS)]))
+    green_blobs = dict(enumerate([GreenBlob(WIDTH, HEIGHT) for i in range(STARTING_GREEN_BLOBS)]))
+   print(blue_blobs[0])
+    pygame.quit()
+    # main()
