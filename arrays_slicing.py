@@ -5,3 +5,11 @@ x = np.arrange(8)
 y = x[0:4]
 print(y)
 
+z = x[6:]
+print(z)
+print(x[:5])
+
+z[1] = 100
+print(x)
+
+a = np.array([[10, 11, 12, 13], [20, 22, 23, 25]])
